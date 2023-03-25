@@ -1,23 +1,23 @@
+import { Customer } from './../../../model/customer';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
-import { Login } from 'src/app/model/login';
-import { LoginService } from 'src/app/service/login.service';
+import { CustomerService } from 'src/app/service/customer.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-add-customer',
+  templateUrl: './add-customer.component.html',
+  styleUrls: ['./add-customer.component.css']
 })
-export class LoginComponent implements OnInit {
-  formLogin!: FormGroup;
+export class AddCustomerComponent implements OnInit {
+  formCustomer!: FormGroup;
 
-  login!: Login;
+  customer!: Customer;
 
-  constructor(public loginService: LoginService){
+  constructor(public customerService: CustomerService){
   }
 
   ngOnInit(): void {
-    this.formLogin = new FormGroup({
+    this.formCustomer = new FormGroup({
       id: new FormControl(0),
       name: new FormControl(null),
       typeId: new FormControl(null),

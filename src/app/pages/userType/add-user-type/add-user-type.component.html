@@ -1,0 +1,12 @@
+<div>
+  <form [formGroup]="formUserType" (ngSubmit)="Add()">
+    <div>
+      <label>Tipo</label>
+      <input type="text" id="name" formControlName="name">
+    </div>
+    <div>
+      <button type="submit">Add</button>
+      <button>Cancel</button>
+    </div>
+  </form>
+</div>

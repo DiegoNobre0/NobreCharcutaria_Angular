@@ -1,23 +1,23 @@
+import { User } from './../../../model/user';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
-import { Login } from 'src/app/model/login';
-import { LoginService } from 'src/app/service/login.service';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: 'app-add-user',
+  templateUrl: './add-user.component.html',
+  styleUrls: ['./add-user.component.css']
 })
-export class LoginComponent implements OnInit {
-  formLogin!: FormGroup;
+export class AddUserComponent {
+  formUser!: FormGroup;
 
-  login!: Login;
+  user!: User;
 
-  constructor(public loginService: LoginService){
+  constructor(public userService: UserService){
   }
 
   ngOnInit(): void {
-    this.formLogin = new FormGroup({
+    this.formUser = new FormGroup({
       id: new FormControl(0),
       name: new FormControl(null),
       typeId: new FormControl(null),

@@ -1,0 +1,21 @@
+<div>
+  <form [formGroup]="formProduct" (ngSubmit)="Add()">
+    <div>
+      <label>Nome</label>
+      <input type="text" id="name" formControlName="name">
+    </div>
+    <div>
+      <label>Peso</label>
+      <input type="text" id="type" formControlName="typeId">
+    </div>
+    <div>
+      <label>Descrição</label>
+      <input type="text" id="force" formControlName="force">
+    </div>
+    <div>
+      <button type="submit">Add</button>
+      <button>Cancel</button>
+    </div>
+  </form>
+</div>
+

@@ -1,12 +1,16 @@
 <div>
-  <form [formGroup]="formLogin" (ngSubmit)="Add()">
+  <form [formGroup]="formUser" (ngSubmit)="Add()">
+    <div>
+      <label>Nome</label>
+      <input type="text" id="name" formControlName="name">
+    </div>
     <div>
       <label>Email</label>
       <input type="text" id="type" formControlName="typeId">
     </div>
     <div>
       <label>Password</label>
-      <input type="text" id="type" formControlName="typeId">
+      <input type="text" id="force" formControlName="force">
     </div>
     <div>
       <button type="submit">Add</button>

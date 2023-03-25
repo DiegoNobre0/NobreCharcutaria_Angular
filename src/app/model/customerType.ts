@@ -1,12 +1,4 @@
-export interface Customer{
+export interface CustomerType{
   id?:number;
-  client?: string;
-  address?: string;
-  neighborhood?:string;
-  city?:string;
-  cep?: string;
-  identificationNumber?:string;
-  telephone?: string;
-  email?: string;
-  customerTypeId?: string;
+  IdentificationType?: string;
 }
