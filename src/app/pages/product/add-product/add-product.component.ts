@@ -20,17 +20,15 @@ export class AddProductComponent {
     this.formProduct = new FormGroup({
       id: new FormControl(0),
       name: new FormControl(null),
-      typeId: new FormControl(null),
-      force: new FormControl(null),
-      defense: new FormControl(null),
-      average: new FormControl(0),
+      weight: new FormControl(null),
+      description: new FormControl(null),
     });
   }
 
   Add(){
-    // this.customer = this.formCustomer.value;
-    // this.customerService.add(this.customer).subscribe((response: Customer) => {
-    //   console.log(response);
-    // });
+    this.product = this.formProduct.value;
+    this.productService.Add(this.product).subscribe((response: Product) => {
+      console.log(response);
+    });
   }
 }

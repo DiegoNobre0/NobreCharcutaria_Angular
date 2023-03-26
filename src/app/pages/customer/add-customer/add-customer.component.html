@@ -1,40 +1,63 @@
 <div>
   <form [formGroup]="formCustomer" (ngSubmit)="Add()">
     <div>
-      <label>Nome</label>
-      <input type="text" id="name" formControlName="name">
+      <mat-form-field >
+        <label>Nome</label>
+        <input type="text" id="client" formControlName="client">
+      </mat-form-field>
     </div>
     <div>
-      <label>Endereço</label>
-      <input type="text" id="type" formControlName="typeId">
+      <mat-form-field >
+        <label>Endereço</label>
+        <input type="text" id="address" formControlName="address">
+      </mat-form-field>
     </div>
     <div>
-      <label>Bairro</label>
-      <input type="text" id="force" formControlName="force">
+      <mat-form-field >
+        <label>Bairro</label>
+        <input type="text" id="neighborhood" formControlName="neighborhood">
+      </mat-form-field>
     </div>
     <div>
-      <label>Cidade</label>
-      <input type="text" id="defense" formControlName="defense">
+      <mat-form-field >
+        <label>Cidade</label>
+        <input type="text" id="city" formControlName="city">
+      </mat-form-field>
     </div>
     <div>
-      <label>CEP</label>
-      <input type="text" id="defense" formControlName="defense">
+      <mat-form-field >
+        <label>CEP</label>
+        <input type="text" id="cep" formControlName="cep">
+      </mat-form-field>
     </div>
     <div>
-      <label>CNPJ/CPF</label>
-      <input type="text" id="name" formControlName="name">
+      <mat-form-field >
+        <label>CNPJ/CPF</label>
+        <input type="text" id="identificationNumber" formControlName="identificationNumber">
+      </mat-form-field>
     </div>
     <div>
-      <label>Telefone</label>
-      <input type="text" id="name" formControlName="name">
+      <mat-form-field >
+        <label>Telefone</label>
+        <input type="text" id="telephone" formControlName="telephone">
+      </mat-form-field>
     </div>
     <div>
-      <label>Email</label>
-      <input type="text" id="name" formControlName="name">
+      <mat-form-field >
+        <label>Email</label>
+        <input type="text" id="email" formControlName="email">
+      </mat-form-field>
     </div>
     <div>
-      <label>Tipo de Cliente</label>
-      <input type="text" id="name" formControlName="name">
+      <mat-form-field  appearance="fill" >
+        <label>Tipo de Cliente</label>
+        <mat-select type="text" id="customerTypeId" placeholder="teste" formControlName="customerTypeId">
+          <mat-option  *ngFor="let customerType of customerTypeList"
+          [value]="customerType.id">
+          {{customerType.identificationType}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
     <div>
       <button type="submit">Add</button>

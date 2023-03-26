@@ -1,4 +1,5 @@
 export interface UserType{
   id?:number;
-  Type?: string;
+  type?: string;
+  isEdit: boolean;
 }

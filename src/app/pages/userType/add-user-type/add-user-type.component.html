@@ -1,8 +1,10 @@
 <div>
   <form [formGroup]="formUserType" (ngSubmit)="Add()">
     <div>
-      <label>Tipo</label>
-      <input type="text" id="name" formControlName="name">
+      <mat-form-field >
+        <label>Tipo</label>
+        <input type="text" id="type" formControlName="type">
+      </mat-form-field>
     </div>
     <div>
       <button type="submit">Add</button>

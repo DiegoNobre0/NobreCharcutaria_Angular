@@ -1,3 +1,4 @@
+import { AuthInterceptor } from './authconfig.interceptor';
 import { LoginComponent } from './pages/login/login.component';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -24,7 +25,7 @@ import { AddUserTypeComponent } from './pages/userType/add-user-type/add-user-ty
 import { ListUserTypeComponent } from './pages/userType/list-user-type/list-user-type.component';
 import { EditUserTypeComponent } from './pages/userType/edit-user-type/edit-user-type.component';
 import { DeleteUserTypeComponent } from './pages/userType/delete-user-type/delete-user-type.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
@@ -35,7 +36,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatNativeDateModule } from '@angular/material/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
 
 
 @NgModule({
@@ -78,10 +82,18 @@ import { HttpClientModule } from '@angular/common/http';
     MatDatepickerModule,
     MatDialogModule,
     MatNativeDateModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    MatToolbarModule,
+    MatIconModule
 
   ],
-  providers: [],
+  providers: [
+     {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

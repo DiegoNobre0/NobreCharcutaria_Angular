@@ -11,7 +11,7 @@ import { CustomerTypeService } from 'src/app/service/customer-type.service';
 export class AddCustomerTypeComponent {
   formCustomerType!: FormGroup;
 
-  cstomerType!: CustomerType;
+  customerType!: CustomerType;
 
   constructor(public customerTypeService: CustomerTypeService){
   }
@@ -19,18 +19,14 @@ export class AddCustomerTypeComponent {
   ngOnInit(): void {
     this.formCustomerType = new FormGroup({
       id: new FormControl(0),
-      name: new FormControl(null),
-      typeId: new FormControl(null),
-      force: new FormControl(null),
-      defense: new FormControl(null),
-      average: new FormControl(0),
+      identificationType: new FormControl(null),
     });
   }
 
   Add(){
-    // this.customer = this.formCustomer.value;
-    // this.customerService.add(this.customer).subscribe((response: Customer) => {
-    //   console.log(response);
-    // });
+    this.customerType = this.formCustomerType.value;
+    this.customerTypeService.Add(this.customerType).subscribe((response: CustomerType) => {
+      console.log(response);
+    });
   }
 }

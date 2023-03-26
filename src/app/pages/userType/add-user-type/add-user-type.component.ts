@@ -19,18 +19,14 @@ export class AddUserTypeComponent {
   ngOnInit(): void {
     this.formUserType = new FormGroup({
       id: new FormControl(0),
-      name: new FormControl(null),
-      typeId: new FormControl(null),
-      force: new FormControl(null),
-      defense: new FormControl(null),
-      average: new FormControl(0),
+      type: new FormControl(null)
     });
   }
 
   Add(){
-    // this.customer = this.formCustomer.value;
-    // this.customerService.add(this.customer).subscribe((response: Customer) => {
-    //   console.log(response);
-    // });
+    this.userType = this.formUserType.value;
+    this.userTypeService.Add(this.userType).subscribe((response: UserType) => {
+      console.log(response);
+    });
   }
 }

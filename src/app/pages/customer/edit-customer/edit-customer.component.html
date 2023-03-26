@@ -1,1 +1,40 @@
-<p>edit-customer works!</p>
+<div>
+  <table mat-table [dataSource]="dataSource" border="1">
+    <ng-container [matColumnDef]="col.key" *ngFor="let col of columnsSchema">
+      <th mat-header-cell *matHeaderCellDef [ngSwitch]="col.key">
+        <span *ngSwitchDefault>{{ col.label }}</span>
+      </th>
+      <td mat-cell *matCellDef="let element">
+        <div [ngSwitch]="col.type" *ngIf="!element.isEdit">
+          <div class="btn-edit" *ngSwitchCase="'isEdit'">
+            <button mat-button (click)="element.isEdit = !element.isEdit" >
+              Edit
+            </button>
+          </div>
+          <span *ngSwitchDefault>
+            {{element[col.key]}}
+          </span>
+        </div>
+        <div *ngIf="element.isEdit">
+          <div class="btn-edit" *ngIf="col.key === 'isEdit'; else dataField">
+            <button  (click)="editRow(element)">
+              done
+            </button>
+          </div>
+          <ng-template #dataField>
+            <mat-form-field>
+              <input
+              matInput
+              [type]="col.type"
+              [(ngModel)]="element[col.key]"
+              [ngModelOptions] = "{standalone: true}"
+            />
+            </mat-form-field>
+          </ng-template>
+        </div>
+      </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

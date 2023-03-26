@@ -20,17 +20,15 @@ export class AddUserComponent {
     this.formUser = new FormGroup({
       id: new FormControl(0),
       name: new FormControl(null),
-      typeId: new FormControl(null),
-      force: new FormControl(null),
-      defense: new FormControl(null),
-      average: new FormControl(0),
+      email: new FormControl(null),
+      password: new FormControl(null),
     });
   }
 
   Add(){
-    // this.customer = this.formCustomer.value;
-    // this.customerService.add(this.customer).subscribe((response: Customer) => {
-    //   console.log(response);
-    // });
+    this.user = this.formUser.value;
+    this.userService.Add(this.user).subscribe((response: User) => {
+      console.log(response);
+    });
   }
 }

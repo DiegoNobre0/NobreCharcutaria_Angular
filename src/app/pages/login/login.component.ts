@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl} from '@angular/forms';
 import { Login } from 'src/app/model/login';
 import { LoginService } from 'src/app/service/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,24 +14,20 @@ export class LoginComponent implements OnInit {
 
   login!: Login;
 
-  constructor(public loginService: LoginService){
-  }
+  constructor(
+    public loginService: LoginService,
+    public router: Router
+    ){}
 
   ngOnInit(): void {
     this.formLogin = new FormGroup({
-      id: new FormControl(0),
-      name: new FormControl(null),
-      typeId: new FormControl(null),
-      force: new FormControl(null),
-      defense: new FormControl(null),
-      average: new FormControl(0),
+      email: new FormControl(null),
+      password: new FormControl(null)
     });
   }
 
-  Add(){
-    // this.customer = this.formCustomer.value;
-    // this.customerService.add(this.customer).subscribe((response: Customer) => {
-    //   console.log(response);
-    // });
+  loginUSer() {
+    debugger
+    this.loginService.signIn(this.formLogin.value);
   }
 }

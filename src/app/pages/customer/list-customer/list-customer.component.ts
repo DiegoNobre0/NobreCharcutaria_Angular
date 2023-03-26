@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Customer} from 'src/app/model/customer';
 import { MatTableDataSource } from '@angular/material/table';
-
+import { CustomerService } from 'src/app/service/customer.service';
 
 const CustomerColumns = [
   {
@@ -25,11 +25,6 @@ const CustomerColumns = [
   label: "Cidade"
 },
 {
-  key: "address",
-  type: "text",
-  label: "Endereço"
-},
-{
   key: "cep",
   type: "text",
   label: "CEP"
@@ -38,6 +33,16 @@ const CustomerColumns = [
   key: "identificationNumber",
   type: "text",
   label: "CNPJ/CPF"
+},
+{
+  key: "telephone",
+  type: "text",
+  label: "Telefone"
+},
+{
+  key: "email",
+  type: "text",
+  label: "Email"
 },
 {
   key: "customerTypeId",
@@ -62,4 +67,18 @@ export class ListCustomerComponent {
   displayedColumns: string[] = CustomerColumns.map((col) => col.key);
   dataSource = new MatTableDataSource<Customer>();
   columnsSchema: any = CustomerColumns;
+
+  customer!: Customer[];
+
+  constructor(public customerService: CustomerService) {
+    this.customer = {} as Customer[];
+  }
+
+  ngOnInit(): void {
+    debugger
+    this.customerService.GetAll().subscribe((response: any) => {
+      this.dataSource.data = response
+      console.log(this.dataSource.data);
+    });
+  }
 }

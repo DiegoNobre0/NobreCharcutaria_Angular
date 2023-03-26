@@ -1,16 +1,22 @@
 <div>
   <form [formGroup]="formProduct" (ngSubmit)="Add()">
     <div>
-      <label>Nome</label>
-      <input type="text" id="name" formControlName="name">
+      <mat-form-field >
+        <label>Nome</label>
+        <input type="text" id="name" formControlName="name">
+      </mat-form-field>
     </div>
     <div>
-      <label>Peso</label>
-      <input type="text" id="type" formControlName="typeId">
+      <mat-form-field >
+        <label>Peso</label>
+        <input type="text" id="weight" formControlName="weight">
+      </mat-form-field>
     </div>
     <div>
-      <label>Descrição</label>
-      <input type="text" id="force" formControlName="force">
+      <mat-form-field >
+        <label>Descrição</label>
+        <input type="text" id="description" formControlName="description">
+      </mat-form-field>
     </div>
     <div>
       <button type="submit">Add</button>

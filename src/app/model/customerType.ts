@@ -1,4 +1,5 @@
 export interface CustomerType{
   id?:number;
-  IdentificationType?: string;
+  identificationType?: string;
+  isEdit: boolean;
 }

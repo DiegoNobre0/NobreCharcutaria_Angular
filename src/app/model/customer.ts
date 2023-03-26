@@ -9,6 +9,7 @@ export interface Customer{
   telephone?: string;
   email?: string;
   customerTypeId?: string;
+  isEdit: boolean;
 };
 
 

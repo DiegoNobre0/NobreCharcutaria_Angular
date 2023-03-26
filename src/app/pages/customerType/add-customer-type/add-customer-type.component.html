@@ -1,8 +1,10 @@
 <div>
   <form [formGroup]="formCustomerType" (ngSubmit)="Add()">
     <div>
-      <label>IdentificationType</label>
-      <input type="text" id="type" formControlName="typeId">
+      <mat-form-field >
+        <label>IdentificationType</label>
+        <input type="text" id="IdentificationType" formControlName="IdentificationType">
+      </mat-form-field>
     </div>
     <div>
       <button type="submit">Add</button>

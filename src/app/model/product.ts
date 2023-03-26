@@ -2,5 +2,6 @@ export interface Product{
   id?:number;
   name?: string;
   weight?: number;
-  Description?:string;
+  description?:string;
+  isEdit: boolean;
 }
